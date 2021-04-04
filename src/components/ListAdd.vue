@@ -12,13 +12,13 @@
 
 <script>
 export default {
-  data: function () {
+  data () {
     return {
       title: "",
     };
   },
   methods: {
-    addList: function () {
+    addList () {
       this.$store.dispatch("addlist", { title: this.title });
       this.title = "";
     },

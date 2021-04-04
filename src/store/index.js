@@ -4,8 +4,21 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  state: {
+    lists: []
+  },
+
+  mutations: {
+    addlist(state, payload) {
+      state.lists.push({ title: payload.title, cards:[] })
+    },
+  },
+
+  actions: {
+    addlist(context, payload) {
+      context.commit('addlist', payload)
+    },
+  },
+
+  getters: {},
 });
