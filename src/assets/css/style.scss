@@ -1,0 +1,209 @@
+html {
+  font-family: "Avenir", Helvetica, Arial, "system-ui", sans-serif;
+
+  overflow-x: scroll;
+
+  width: 100%;
+  height: 100%;
+
+  color: #2c3e50;
+  background: orange;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  font-size: 40px;
+  font-style: italic;
+
+  height: 70px;
+  padding: 20px;
+
+  text-align: left;
+
+  color: white;
+  background: orange;
+}
+
+main {
+  width: calc(100% - 40px);
+  height: 100%;
+  padding: 0 10px;
+}
+
+.info-line {
+  font-size: 20px;
+
+  margin: 20px;
+}
+
+.list-index {
+  display: flex;
+}
+
+.addlist {
+  display: inline-block;
+  align-items: flex-start;
+  flex-direction: column;
+
+  width: 320px;
+  min-width: 320px;
+  margin: 0 10px auto;
+}
+
+.text-input {
+  font-family: "Noto Sans Japanese", "Noto Sans", "system-ui", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+
+  overflow: overlay;
+
+  width: calc(100% - 30px);
+  padding: 20px 15px;
+
+  cursor: pointer;
+  cursor: pointer;
+
+  color: #242424;
+  border: none;
+  border-radius: 8px;
+  background-color: #ccc;
+}
+
+.text-input:focus {
+  cursor: initial;
+
+  outline: 0;
+}
+
+.add-button {
+  font-family: "Noto Sans Japanese", "Noto Sans", "system-ui", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+
+  margin-top: 15px;
+  padding: 15px 18px;
+
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  background-color: #999;
+}
+
+.add-button:hover {
+  cursor: pointer;
+
+  opacity: 0.8;
+}
+
+.active .text-input {
+  background-color: #fff;
+}
+
+.addable .add-button {
+  cursor: pointer;
+  pointer-events: auto;
+
+  background-color: #00d78f;
+}
+
+.add-button:active {
+  background-color: #00d78f;
+}
+
+.list {
+  position: relative;
+
+  display: inline-block;
+  align-items: flex-start;
+  flex-direction: column;
+
+  width: 290px;
+  min-width: 290px;
+  margin: 0 5px auto;
+  padding: 15px;
+
+  vertical-align: top;
+
+  color: gray;
+  border: solid #ddd 1px;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+}
+
+.listheader {
+  display: inline-flex;
+  justify-content: space-between;
+
+  width: 290px;
+}
+
+.list-title {
+  font-size: 20px;
+  font-weight: bold;
+
+  padding: 15px;
+}
+
+.list-counter {
+  padding: 15px;
+
+  color: rgb(0, 140, 255);
+}
+
+.deletelist {
+  font-size: 28px;
+
+  position: absolute;
+  top: 6px;
+  right: 14px;
+}
+
+.deletelist:hover {
+  cursor: pointer;
+
+  opacity: 0.8;
+}
+
+.card {
+  position: relative;
+
+  display: flex;
+
+  width: 260px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 30px 15px 40px;
+
+  cursor: pointer;
+
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.close-button {
+  font-size: 22px;
+
+  position: absolute;
+  top: 6px;
+  right: 15px;
+
+  margin: 5px;
+
+  cursor: pointer;
+
+  color: white;
+  border-style: solid;
+  border-color: red;
+  border-radius: 8px;
+  background-color: red;
+}
+
+.body {
+  font-size: 18px;
+
+  width: 100%;
+
+  word-wrap: break-word;
+}
