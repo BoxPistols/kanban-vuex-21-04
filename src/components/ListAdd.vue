@@ -10,7 +10,9 @@
                 @focusin="startEditing"
                 @focusout="finishEditing"
             />
-            <button type="submit" class="add-button">Add!!</button>
+            <button type="submit" class="add-button" v-if="isEditing || titleExists">
+                Add Text
+            </button>
         </form>
     </div>
 </template>
@@ -40,10 +42,18 @@ export default {
     computed: {
         classList() {
             const classList = ['addlist']
+
             if (this.isEditing) {
                 classList.push('active')
             }
+
+            if (this.titleExists) {
+                classList.push('addable')
+            }
             return classList
+        },
+        titleExists() {
+            return this.title.length > 0
         },
     },
 }

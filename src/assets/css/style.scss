@@ -194,7 +194,13 @@ main {
     width: 100%;
     word-wrap: break-word;
 }
-// form
+// inout form has event
 .active .text-input {
     background-color: #fff;
+}
+
+.addable .add-button {
+    background-color: #00d78f;
+    pointer-events: auto;
+    cursor: pointer;
 }
