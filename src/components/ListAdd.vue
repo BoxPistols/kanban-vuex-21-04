@@ -1,8 +1,18 @@
 <template>
-    <form class="addlist" @submit.prevent="addList">
-        <input v-model="title" type="text" class="text-input" placeholder="Add new list" />
-        <button type="submit" class="add-button">Add</button>
-    </form>
+    <div>
+        <p>data: {{ $data }}</p>
+        <form class="addlist" @submit.prevent="addList">
+            <input
+                v-model="title"
+                type="text"
+                class="text-input"
+                placeholder="Add new list"
+            />
+            <button type="submit" class="add-button">
+                Add!!
+            </button>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -14,7 +24,9 @@ export default {
     },
     methods: {
         addList() {
-            this.$store.dispatch('addlist', { title: this.title })
+            this.$store.dispatch('addlist', {
+                title: this.title,
+            })
             this.title = ''
         },
     },

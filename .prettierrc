@@ -1,6 +1,6 @@
 {
     "singleQuote": true,
-    "printWidth": 160,
+    "printWidth": 80,
     "tabWidth": 4,
     "useTabs": false,
     "semi": false,
@@ -13,6 +13,6 @@
     "jsxBracketSameLine": false,
     "requirePragma": false,
     "insertPragma": false,
-    "proseWrap": "preserve",
+    "proseWrap": "never",
     "vueIndentScriptAndStyle": false
 }
