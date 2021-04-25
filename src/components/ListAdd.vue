@@ -8,9 +8,7 @@
                 class="text-input"
                 placeholder="Add new list"
             />
-            <button type="submit" class="add-button">
-                Add!!
-            </button>
+            <button type="submit" class="add-button">Add!!</button>
         </form>
     </div>
 </template>

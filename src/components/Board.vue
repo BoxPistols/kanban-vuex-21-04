@@ -2,9 +2,7 @@
     <div>
         <header>THE KANBAN</header>
         <main>
-            <p class="info-line">
-                All: 0 tasks
-            </p>
+            <p class="info-line">All: 0 tasks</p>
             <list-add />
         </main>
     </div>

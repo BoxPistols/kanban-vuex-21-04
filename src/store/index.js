@@ -3,14 +3,38 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const savedLists = localStorage.getItem('vue-kanban-lists')
+
+const store = new Vuex.Store({
     state: {
-        lists: [],
+        lists: savedLists
+            ? JSON.parse(savedLists)
+            : [
+                  {
+                      title: 'Backlog',
+                      cards: [{ body: 'English' }, { body: 'Mathematics' }],
+                  },
+                  {
+                      title: 'Todo',
+                      cards: [
+                          {
+                              body: 'Science',
+                          },
+                      ],
+                  },
+                  {
+                      title: 'Doing',
+                      cards: [],
+                  },
+              ],
     },
 
     mutations: {
         addlist(state, payload) {
-            state.lists.push({ title: payload.title, cards: [] })
+            state.lists.push({
+                title: payload.title,
+                cards: [],
+            })
         },
     },
 
@@ -22,3 +46,9 @@ export default new Vuex.Store({
 
     getters: {},
 })
+
+store.subscribe((mutation, state) => {
+    localStorage.setItem('vue-kanban-lists', JSON.stringify(state.lists))
+})
+
+export default store
