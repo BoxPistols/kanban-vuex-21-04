@@ -7,12 +7,10 @@
     "quoteProps": "as-needed",
     "jsxSingleQuote": true,
     "trailingComma": "es5",
-    "arrowParens": "always",
     "endOfLine": "lf",
     "bracketSpacing": true,
-    "jsxBracketSameLine": false,
     "requirePragma": false,
     "insertPragma": false,
-    "proseWrap": "always",
-    "vueIndentScriptAndStyle": false
+    "vueIndentScriptAndStyle": false,
+    "arrowParens": "avoid"
 }
