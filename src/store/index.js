@@ -1,24 +1,24 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    lists: []
-  },
-
-  mutations: {
-    addlist(state, payload) {
-      state.lists.push({ title: payload.title, cards:[] })
+    state: {
+        lists: [],
     },
-  },
 
-  actions: {
-    addlist(context, payload) {
-      context.commit('addlist', payload)
+    mutations: {
+        addlist(state, payload) {
+            state.lists.push({ title: payload.title, cards: [] })
+        },
     },
-  },
 
-  getters: {},
-});
+    actions: {
+        addlist(context, payload) {
+            context.commit('addlist', payload)
+        },
+    },
+
+    getters: {},
+})
