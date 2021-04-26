@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>data: {{ $data }}</p>
         <form :class="classList" @submit.prevent="addList">
             <input
                 v-model="title"
@@ -13,6 +12,7 @@
             <button type="submit" class="add-button" v-if="isEditing || titleExists">
                 Add Text
             </button>
+            <p>data: {{ $data }}</p>
         </form>
     </div>
 </template>

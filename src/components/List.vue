@@ -1,5 +1,8 @@
 <template>
     <div class="list">
+        <div class="list-no">
+            {{ this.listIndex + 1 }}
+        </div>
         <div class="listheader">
             <p class="list-title">{{ title }}</p>
             <div class="deletelist" @click="removeList">×</div>
@@ -25,7 +28,7 @@ export default {
     methods: {
         removeList() {
             if (confirm('削除しますか？')) {
-                this.$storestore.dispatch('removelist', { listIndex: this.listIndex })
+                this.$store.dispatch('removelist', { listIndex: this.listIndex })
             }
         },
     },

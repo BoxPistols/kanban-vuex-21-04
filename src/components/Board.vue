@@ -2,7 +2,7 @@
     <div>
         <header>THE KANBAN</header>
         <main>
-            <p class="info-line">All: 0 tasks</p>
+            <p class="info-line">All: {{ lists.length }} tasks</p>
             <div class="list-index">
                 <list v-for="(item, index) in lists" :key="item.id" :title="item.title" :listIndex="index" />
                 <list-add />
@@ -24,5 +24,6 @@ export default {
     computed: {
         ...mapState(['lists']),
     },
+    methods: {},
 }
 </script>

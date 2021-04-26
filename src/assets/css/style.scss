@@ -10,13 +10,14 @@ html {
 }
 
 header {
-    font-size: 40px;
-    font-style: italic;
-    height: 70px;
-    padding: 20px;
-    text-align: left;
+    font-size: 36px;
+    // font-style: italic;
+    // height: 70px;
+    padding: 12px 20px;
+    // text-align: left;
     color: white;
-    background: orange;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
 }
 
 main {
@@ -114,7 +115,7 @@ main {
     width: 290px;
     min-width: 290px;
     margin: 0 5px auto;
-    padding: 15px;
+    padding: 4px;
 
     vertical-align: top;
 
@@ -135,7 +136,7 @@ main {
     font-size: 20px;
     font-weight: bold;
 
-    padding: 15px;
+    padding: 0.25em 1em;
 }
 
 .list-counter {
@@ -144,12 +145,21 @@ main {
     color: rgb(0, 140, 255);
 }
 
+.list-no {
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    color: lighten(gray, 15%);
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .deletelist {
     font-size: 28px;
 
     position: absolute;
-    top: 6px;
-    right: 14px;
+    top: 0px;
+    right: 12px;
 }
 
 .deletelist:hover {
