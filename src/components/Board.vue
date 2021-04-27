@@ -4,7 +4,13 @@
         <main>
             <p class="info-line">All: {{ lists.length }} tasks</p>
             <div class="list-index">
-                <list v-for="(item, index) in lists" :key="item.id" :title="item.title" :listIndex="index" />
+                <list
+                    v-for="(item, index) in lists"
+                    :key="item.id"
+                    :title="item.title"
+                    :cards="item.cards"
+                    :listIndex="index"
+                />
                 <list-add />
             </div>
         </main>

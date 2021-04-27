@@ -3,15 +3,10 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// LocalStorages 取得表示（キー）
-const savedLists = localStorage.getItem('vue-kanban-lists')
+const savedLists = localStorage.getItem('trello-lists')
 
-// storeのインスタンス生成
 const store = new Vuex.Store({
-    // 状態
-    // LocalStoragesにデータがあればそれを、無ければデフォルトを、JSON形式で配列設置
     state: {
-        // 元の設定 -> lists: [] <- 空配列
         lists: savedLists
             ? JSON.parse(savedLists)
             : [
@@ -29,26 +24,20 @@ const store = new Vuex.Store({
                   },
               ],
     },
-    // mutationsでstate(lists)の更新
     mutations: {
-        // Name(状態、引数)
         addlist(state, payload) {
-            // リストの追加
-            state.lists.push({
-                title: payload.title,
-                cards: [],
-            })
+            state.lists.push({ title: payload.title, cards: [] })
         },
-        // Listの削除
         removelist(state, payload) {
             state.lists.splice(payload.listIndex, 1)
         },
-        // Cardの追加
-        addCardToDoList(state, payload) {
+        addCardToList(state, payload) {
             state.lists[payload.listIndex].cards.push({ body: payload.body })
         },
+        removeCardFromList(state, payload) {
+            state.lists[payload.listIndex].cards.splice(payload.cardIndex, 1)
+        },
     },
-    // mutationsの実行
     actions: {
         addlist(context, payload) {
             context.commit('addlist', payload)
@@ -56,19 +45,18 @@ const store = new Vuex.Store({
         removelist(context, payload) {
             context.commit('removelist', payload)
         },
-        // Cardの追加
-        addCardToDoList(context, payload) {
-            context.commit('addCardToDoList', payload)
+        addCardToList(context, payload) {
+            context.commit('addCardToList', payload)
+        },
+        removeCardFromList(context, payload) {
+            context.commit('removeCardFromList', payload)
         },
     },
-
     getters: {},
 })
 
-// データの状態を更新後、localStorageへデータの状態を保存
 store.subscribe((mutation, state) => {
-    localStorage.setItem('vue-kanban-lists', JSON.stringify(state.lists))
+    localStorage.setItem('trello-lists', JSON.stringify(state.lists))
 })
 
-// main.jsで読み込む
 export default store

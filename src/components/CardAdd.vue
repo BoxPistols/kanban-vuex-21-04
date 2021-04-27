@@ -1,7 +1,7 @@
 <template>
     <div class="">
-        <form class="addcard" @submit.prevent="addCardToDoList">
-            <input type="text" placeholder="Add new card" class="text-input" />
+        <form class="addcard" @submit.prevent="addCardToList">
+            <input type="text" placeholder="Add new card" class="text-input" v-model="body" />
             <button type="submit" class="add-button">Add</button>
         </form>
     </div>
@@ -17,8 +17,8 @@ export default {
         }
     },
     methods: {
-        addCardToDoList() {
-            this.$storestore.dispatch('addCardToDoList', { body: this.body, listIndex: this.listIndex })
+        addCardToList: function () {
+            this.$store.dispatch('addCardToList', { body: this.body, listIndex: this.listIndex })
             this.body = ''
         },
     },
