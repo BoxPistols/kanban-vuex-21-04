@@ -1,8 +1,6 @@
 <template>
     <div class="card">
-        <button class="close-button" @click="removeCardFromList">
-            ×
-        </button>
+        <button class="close-button" @click="removeCardFromList">×</button>
         <div class="body">
             {{ body }}
         </div>
