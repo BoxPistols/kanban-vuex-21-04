@@ -1,26 +1,36 @@
 <template>
     <div class="list">
-        <div class="list-no">
-            {{ this.listIndex + 1 }}
-        </div>
         <div class="listheader">
             <p class="list-title">{{ title }}</p>
             <div class="deletelist" @click="removeList">×</div>
         </div>
-
+        <card
+            v-for="(item, index) in cards"
+            :body="item.body"
+            :key="item.id"
+            :cardIndex="index"
+            :listIndex="listIndex"
+        />
         <card-add :listIndex="listIndex" />
     </div>
 </template>
 
 <script>
 import CardAdd from './CardAdd'
+import Card from './Card'
+
 export default {
     components: {
         CardAdd,
+        Card,
     },
     props: {
         title: {
             type: String,
+            required: true,
+        },
+        cards: {
+            type: Array,
             required: true,
         },
         listIndex: {
@@ -28,12 +38,9 @@ export default {
             required: true,
         },
     },
-    data() {
-        return {}
-    },
     methods: {
-        removeList() {
-            if (confirm('削除しますか？')) {
+        removeList: function () {
+            if (confirm('本当にこのリストを削除しますか？')) {
                 this.$store.dispatch('removelist', { listIndex: this.listIndex })
             }
         },
