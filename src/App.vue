@@ -13,8 +13,7 @@ export default {
     name: 'app',
     components: {
         Board,
-        ListAdd
-
-    }
+        ListAdd,
+    },
 }
 </script>
