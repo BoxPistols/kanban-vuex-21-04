@@ -1,60 +1,38 @@
 <template>
     <div>
-        <form :class="classList" @submit.prevent="addList">
-            <input
-                v-model="title"
-                type="text"
-                class="text-input"
-                placeholder="Add new list"
-                @focusin="startEditing"
-                @focusout="finishEditing"
-            />
-            <button type="submit" class="add-button" v-if="isEditing || titleExists">
-                Add Text
-            </button>
-            <p>data: {{ $data }}</p>
+        <!-- Debug -->
+        <p>{{$data}}</p>
+        <form class="addlist" @submit.prevent="addList">
+            <input v-model="title" type="text" class="text-input" placeholder="Add New..." />
         </form>
+        <button type="submit" class="add-button">Add</button>
+        <button type="submit" class="add-button" @click="test">Test</button>
     </div>
+    <!--
+        @submit.prevent="addList"
+            サブミット時にaddListメソッドをバンドル / リロード防止
+        @v-model="title"
+            titleをバインド 実質 = <input :value="title" @input="title = $event.target.value">
+    -->
 </template>
 
 <script>
 export default {
     data() {
         return {
-            title: '',
-            isEditing: false,
+            title: ""
         }
     },
     methods: {
         addList() {
             this.$store.dispatch('addlist', {
-                title: this.title,
+                title: this.title
             })
-            this.title = ''
+            this.title = ""
         },
-        startEditing() {
-            this.isEditing = true
+        test() {
+            alert(this.title)
         },
-        finishEditing() {
-            this.isEditing = false
-        },
-    },
-    computed: {
-        classList() {
-            const classList = ['addlist']
-
-            if (this.isEditing) {
-                classList.push('active')
-            }
-
-            if (this.titleExists) {
-                classList.push('addable')
-            }
-            return classList
-        },
-        titleExists() {
-            return this.title.length > 0
-        },
-    },
+    }
 }
 </script>
